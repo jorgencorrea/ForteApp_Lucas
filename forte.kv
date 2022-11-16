@@ -1,8 +1,14 @@
 <Raiz>:
+    StartScreen:
+    
+<StartScreen>:
     MDBoxLayout:
         orientation:'vertical'
         MDTopAppBar:
             title: 'FORTE ENGENHARIA CHECKLIST'
+            elevation: 1
+            # left_action_items: [["arrow-left-thin", lambda x: app.callback()]]
+            right_action_items: [["dots-vertical", lambda x: app.callback()]]
         MDBoxLayout:        
             orientation:'vertical'
             padding: '10dp'
@@ -15,16 +21,20 @@
                 pos_hint: {'center_x': 0.5}
             MDBoxLayout:
                 orientation: 'horizontal'
-                padding: '40dp'
+                spacing: '10dp'
                 md_bg_color: 'gray'
+                size_hint: 1, None
+                height: self.minimum_height
                 MDLabel:
                     text: 'SEM TALHA AUXILIAR'
-                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                    pos_hint: {'left': 1,'center_y': 0.5}
                 MDSwitch:
                     id: sw1
-                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                    pos_hint: {'left': 0.5,'center_y': 0.5}
+                Widget:
             MDRaisedButton:
                 text: 'INFORMAÇÕES INICIAIS'
+                on_release: root.change_screen(info)
             MDRaisedButton:
                 text: 'CHECKLIST PONTE'
             MDRaisedButton:
