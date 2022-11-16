@@ -1,0 +1,40 @@
+<Raiz>:
+    MDBoxLayout:
+        orientation:'vertical'
+        MDTopAppBar:
+            title: 'FORTE ENGENHARIA CHECKLIST'
+        MDBoxLayout:        
+            orientation:'vertical'
+            padding: '10dp'
+            spacing: '10dp'
+            FitImage:
+                source:'logo.jpg'
+            Label:
+                text: 'CHECKLIST PONTE ROLANTE'
+                color: 'black'
+                pos_hint: {'center_x': 0.5}
+            MDBoxLayout:
+                orientation: 'horizontal'
+                padding: '40dp'
+                md_bg_color: 'gray'
+                MDLabel:
+                    text: 'SEM TALHA AUXILIAR'
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                MDSwitch:
+                    id: sw1
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            MDRaisedButton:
+                text: 'INFORMAÇÕES INICIAIS'
+            MDRaisedButton:
+                text: 'CHECKLIST PONTE'
+            MDRaisedButton:
+                text: 'CHECK LIST TALHA'
+            MDRaisedButton:
+                text: 'PONTOS DIVERGENTES'
+            MDRaisedButton:
+                text: 'LISTA DE PONTOS DIVERGENTES'
+            MDRaisedButton:
+                text: 'LIMPAR TODOS REGISTROS'
+
+<MDRaisedButton>:
+    pos_hint: {'center_x': 0.5}
