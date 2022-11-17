@@ -22,7 +22,7 @@ class ForteApp(MDApp):
         self.theme_cls.material_style = "M3"
         return Raiz()
 
-    def callback(self,*args):
+    def dots(self,*args):
         print('here')
 
 if __name__ == '__main__':

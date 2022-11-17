@@ -1,14 +1,16 @@
 <Raiz>:
     StartScreen:
+    StartInfo:
     
 <StartScreen>:
+    name: 'start'
     MDBoxLayout:
         orientation:'vertical'
         MDTopAppBar:
             title: 'FORTE ENGENHARIA CHECKLIST'
             elevation: 1
             # left_action_items: [["arrow-left-thin", lambda x: app.callback()]]
-            right_action_items: [["dots-vertical", lambda x: app.callback()]]
+            right_action_items: [["dots-vertical", lambda x: app.dots()]]
         MDBoxLayout:        
             orientation:'vertical'
             padding: '10dp'
@@ -34,7 +36,7 @@
                 Widget:
             MDRaisedButton:
                 text: 'INFORMAÇÕES INICIAIS'
-                on_release: root.change_screen(info)
+                on_release: root.parent.current = 'info'
             MDRaisedButton:
                 text: 'CHECKLIST PONTE'
             MDRaisedButton:
@@ -48,3 +50,12 @@
 
 <MDRaisedButton>:
     pos_hint: {'center_x': 0.5}
+
+<StartInfo>:
+    name: 'info'
+    MDBoxLayout:
+        orientation: 'vertical'
+        Button:
+            on_press:
+                root.parent.change_screen()
+        Label:
