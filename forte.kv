@@ -1,6 +1,20 @@
 <Raiz>:
     StartScreen:
-    StartInfo:
+    StartInfoScreen:
+    CheckListPonteScreen:
+    CheckListTalhaScreen:
+    PontosDivergentesScreen:
+    ListaPontosDivergentesScreen:
+
+<MDTextField>:
+    text: ''
+    mode:'rectangle'
+    size_hint_y: None
+    height: '30dp'
+
+<MDLabel>:
+    # text_size: self.width, 15
+    halign: 'center'
     
 <StartScreen>:
     name: 'start'
@@ -9,7 +23,6 @@
         MDTopAppBar:
             title: 'FORTE ENGENHARIA CHECKLIST'
             elevation: 1
-            # left_action_items: [["arrow-left-thin", lambda x: app.callback()]]
             right_action_items: [["dots-vertical", lambda x: app.dots()]]
         MDBoxLayout:        
             orientation:'vertical'
@@ -58,7 +71,7 @@
     size_hint_x: 0.7
     type: 'round'
 
-<StartInfo>:
+<StartInfoScreen>:
     name: 'info'
     MDBoxLayout:
         orientation: 'vertical'
@@ -88,10 +101,11 @@
             MDTextField:
                 hint_text: 'TAG'
             MDTextField:
-                text: '01/01/1900'
+                # text: '01/01/1900'
+                multiline: False
                 hint_text: 'DATA'
                 helper_text_mode: "on_error"
-                error: True
+                error: False
                 helper_text: 'insira uma data válida no formaaato dd/mm/aaaa'
                 validator: 'date'
                 date_format: "dd/mm/yyyy"
@@ -104,9 +118,3 @@
             text: 'ASSINATURA DO CLIENTE'
             md_bg_color: 'gray'
         Widget:
-
-<MDTextField>:
-    text: ''
-    mode:'rectangle'
-    size_hint_y: None
-    height: '30dp'

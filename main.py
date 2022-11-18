@@ -14,7 +14,7 @@ class Raiz(ScreenManager):
 class StartScreen(MDScreen):
     pass
 
-class StartInfo(MDScreen):
+class StartInfoScreen(MDScreen):
     pass
 
 class ForteApp(MDApp):
