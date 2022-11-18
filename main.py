@@ -23,7 +23,13 @@ class ForteApp(MDApp):
         return Raiz()
 
     def dots(self,*args):
-        print('here')
+        print('dots-vertical pressed')
+    
+    def back(self,*args):
+        self.root.current = 'start'
+
+    def change_screen(self,screen_name,*args):
+        self.root.current = screen_name
 
 if __name__ == '__main__':
     ForteApp().run()

@@ -13,13 +13,14 @@
             right_action_items: [["dots-vertical", lambda x: app.dots()]]
         MDBoxLayout:        
             orientation:'vertical'
-            padding: '10dp'
+            padding: '0dp','10dp'
             spacing: '10dp'
             FitImage:
                 source:'logo.jpg'
             Label:
                 text: 'CHECKLIST PONTE ROLANTE'
                 color: 'black'
+                font_size: '20'
                 pos_hint: {'center_x': 0.5}
             MDBoxLayout:
                 orientation: 'horizontal'
@@ -27,16 +28,20 @@
                 md_bg_color: 'gray'
                 size_hint: 1, None
                 height: self.minimum_height
+                Widget:
+                    size_hint_x: 0.05
                 MDLabel:
                     text: 'SEM TALHA AUXILIAR'
-                    pos_hint: {'left': 1,'center_y': 0.5}
+                    pos_hint: {'left': 0,'center_y': 0.5}
                 MDSwitch:
                     id: sw1
-                    pos_hint: {'left': 0.5,'center_y': 0.5}
+                    pos_hint: {'center_x': 0.5,'center_y': 0.3}
                 Widget:
+                    size_hint_x: 0.1
+
             MDRaisedButton:
                 text: 'INFORMAÇÕES INICIAIS'
-                on_release: root.parent.current = 'info'
+                on_release: app.change_screen('info')
             MDRaisedButton:
                 text: 'CHECKLIST PONTE'
             MDRaisedButton:
@@ -50,12 +55,58 @@
 
 <MDRaisedButton>:
     pos_hint: {'center_x': 0.5}
+    size_hint_x: 0.7
+    type: 'round'
 
 <StartInfo>:
     name: 'info'
     MDBoxLayout:
         orientation: 'vertical'
-        Button:
-            on_press:
-                root.parent.change_screen()
-        Label:
+        spacing: '5dp'
+        padding: '0dp','10dp'
+        MDTopAppBar:
+            title: 'FORTE ENGENHARIA CHECKLIST'
+            elevation: 1
+            left_action_items: [["arrow-left-thin", lambda x: app.back()]]
+            right_action_items: [["dots-vertical", lambda x: app.dots()]]
+        MDLabel:
+            text: 'DADOS DO CLIENTE'
+            md_bg_color: 'blue'
+        MDLabel:
+            text: 'NOME DO CLIENTE'
+            md_bg_color: 'gray'
+        MDTextField:
+            height: self.minimum_height
+            hint_text: 'NOME DO CLIENTE'
+        MDLabel:
+            text: 'DADOS DO EQUIPAMENTO'
+            md_bg_color: 'gray'
+        MDTextField:
+            hint_text: 'NOME DO EQUIPAMENTO'
+        BoxLayout:
+            orientation:'horizontal'
+            MDTextField:
+                hint_text: 'TAG'
+            MDTextField:
+                text: '01/01/1900'
+                hint_text: 'DATA'
+                helper_text_mode: "on_error"
+                error: True
+                helper_text: 'insira uma data válida no formaaato dd/mm/aaaa'
+                validator: 'date'
+                date_format: "dd/mm/yyyy"
+        MDLabel:
+            text: 'RESPONSÁVEL FORTE'
+            md_bg_color: 'gray'
+        MDTextField:
+            hint_text: 'RESPONSÁVEL FORTE'
+        MDLabel:
+            text: 'ASSINATURA DO CLIENTE'
+            md_bg_color: 'gray'
+        Widget:
+
+<MDTextField>:
+    text: ''
+    mode:'rectangle'
+    size_hint_y: None
+    height: '30dp'
