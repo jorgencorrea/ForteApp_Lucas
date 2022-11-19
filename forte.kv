@@ -2,9 +2,10 @@
     StartScreen:
     StartInfoScreen:
     CheckListPonteScreen:
-    CheckListTalhaScreen:
-    PontosDivergentesScreen:
-    ListaPontosDivergentesScreen:
+    # CheckListTalhaScreen:
+    # PontosDivergentesScreen:
+    # ListaPontosDivergentesScreen:
+
 
 <MDTextField>:
     text: ''
@@ -13,7 +14,6 @@
     height: '30dp'
 
 <MDLabel>:
-    # text_size: self.width, 15
     halign: 'center'
     
 <StartScreen>:
@@ -44,7 +44,7 @@
                 Widget:
                     size_hint_x: 0.05
                 MDLabel:
-                    text: 'SEM TALHA AUXILIAR'
+                    text: 'TALHA AUXILIAR'
                     pos_hint: {'left': 0,'center_y': 0.5}
                 MDSwitch:
                     id: sw1
@@ -57,6 +57,7 @@
                 on_release: app.change_screen('info')
             MDRaisedButton:
                 text: 'CHECKLIST PONTE'
+                on_release: app.change_screen('checklist_ponte')
             MDRaisedButton:
                 text: 'CHECK LIST TALHA'
             MDRaisedButton:
@@ -69,7 +70,6 @@
 <MDRaisedButton>:
     pos_hint: {'center_x': 0.5}
     size_hint_x: 0.7
-    type: 'round'
 
 <StartInfoScreen>:
     name: 'info'
@@ -118,3 +118,119 @@
             text: 'ASSINATURA DO CLIENTE'
             md_bg_color: 'gray'
         Widget:
+
+
+<CheckListPonteScreen>:
+    name: 'checklist_ponte'
+    MDBoxLayout:
+        orientation:'vertical'
+        MDTopAppBar:
+            title: 'Meu App'
+            left_action_items: [['arrow-left-thin',lambda x: app.change_screen('start')]]
+            right_action_items: [['dots-vertical',lambda x: print('OK right')]]
+        MDScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                MDLabel:
+                    text: 'CHECKLIST PONTE'
+                    md_bg_color: 'blue'
+                    size_hint_y: None
+                    height: '48dp'
+                Item:
+                    text: 'TENSÃO DE ENTRADA DO EQUIPAMENTO'
+                CheckItem:
+                    group: 'a'
+                Item:
+                    text: 'TENSÃO DE COMANDO'
+                CheckItem:
+                    group: 'b'
+                Item:
+                    text: 'IDENTIFICAÇÃO DO EQUIPAMENTO'
+                CheckItem:
+                    group: 'c'
+                Item:
+                    text: 'IDENTIFICAÇÃO DA CAPACIDADE DE ELEVAÇÃO'
+                CheckItem:
+                    group: 'd'
+                Item:
+                    text: 'OPERADORES SÃO CAPACITADOS PARA OPERAÇÃO DO EQUIPAMENTO'
+                CheckItem:
+                    group: 'e'
+                Item:
+                    text: 'ACESSO PARA MANUTENÇÃO DO EQUIPAMENTO'
+                CheckItem:
+                    group: 'f'
+                Item:
+                    text: 'BLOQUEIO DO EQUIPAMENTO PARA MANUTENÇÃO'
+                CheckItem:
+                    group: 'g'
+                Item:
+                    text: 'ACIONAMENTO COMANDO ELEVAÇÃO'
+                CheckItem:
+                    group: 'H'
+                Item:
+                    text: 'ACIONAMENTO COMANDO DIREÇÃO'
+                CheckItem:
+                    group: 'I'
+                Item:
+                    text: 'ACIONAMENTO COMANDO TRANSLAÇÃO'
+                CheckItem:
+                    group: 'J'
+                Item:
+                    text: 'FIM DE CURSO TRANSLAÇÃO RÁPIDA - FRENTE'
+                CheckItem:
+                    group: 'K'
+                Item:
+                    text: 'FIM DE CURSO TRANSLAÇÃO LENTA - FRENTE'
+                CheckItem:
+                    group: 'L'
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10dp'
+            size_hint_y: None
+            height: self.minimum_height
+            Widget:
+                height: '10dp'
+            MDRaisedButton:
+                text: 'SALVAR DADOS'
+            MDRaisedButton:
+                text: 'LIMPAR DADOS'
+            Widget:
+                height: '10dp'
+
+
+<CheckItem@BoxLayout>:
+    orientation:'horizontal'
+    size_hint_y: None
+    height: '56dp'
+    group: ''
+    MDTextField:
+        hint_text: 'ANOTAÇÕES'
+        mode: 'line'
+        size_hint_x: 0.8
+    MDCheckbox:
+        group: self.parent.group
+        size_hint_x: 0.1
+    MDLabel:
+        text: 'OK'
+        size_hint_x: 0.1
+    MDCheckbox:
+        group: self.parent.group
+        # size: "48dp", "48dp"
+        size_hint_x: 0.1
+    MDLabel:
+        text: 'NA'
+        size_hint_x: 0.1
+    MDCheckbox:
+        group: self.parent.group
+        size_hint_x: 0.1
+    MDLabel:
+        text: 'NC'
+        size_hint_x: 0.1
+
+<Item@MDLabel>:
+    md_bg_color: 'gray'
+    size_hint_y: None
+    height: '48dp'

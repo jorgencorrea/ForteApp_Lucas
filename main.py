@@ -4,9 +4,11 @@ from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.uix.button import MDRaisedButton
+from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.label import MDLabel
 
-class MDRaisedButton(MDRaisedButton):
-    pass
+# class MDRaisedButton(MDRaisedButton):
+#     pass
 
 class Raiz(ScreenManager):
     pass
@@ -16,6 +18,15 @@ class StartScreen(MDScreen):
 
 class StartInfoScreen(MDScreen):
     pass
+
+class CheckListPonteScreen(MDScreen):
+    pass
+
+# class Item(MDLabel):
+#     pass
+
+# class CheckItem(MDBoxLayout):
+#     pass
 
 class ForteApp(MDApp):
     def build(self):
