@@ -44,11 +44,16 @@
                 Widget:
                     size_hint_x: 0.05
                 MDLabel:
-                    text: 'TALHA AUXILIAR'
+                    id: lbl_talha
+                    text: 'SEM TALHA AUXILIAR'
                     pos_hint: {'left': 0,'center_y': 0.5}
                 MDSwitch:
-                    id: sw1
+                    id: sw_talha
+                    active: False
                     pos_hint: {'center_x': 0.5,'center_y': 0.3}
+                    on_active: 
+                        if self.active: lbl_talha.text='COM TALHA AUXILIAR'
+                        else: lbl_talha.text='SEM TALHA AUXILIAR'
                 Widget:
                     size_hint_x: 0.1
 
@@ -82,42 +87,49 @@
             elevation: 1
             left_action_items: [["arrow-left-thin", lambda x: app.back()]]
             right_action_items: [["dots-vertical", lambda x: app.dots()]]
-        MDLabel:
-            text: 'DADOS DO CLIENTE'
-            md_bg_color: 'blue'
-        MDLabel:
-            text: 'NOME DO CLIENTE'
-            md_bg_color: 'gray'
-        MDTextField:
-            height: self.minimum_height
-            hint_text: 'NOME DO CLIENTE'
-        MDLabel:
-            text: 'DADOS DO EQUIPAMENTO'
-            md_bg_color: 'gray'
-        MDTextField:
-            hint_text: 'NOME DO EQUIPAMENTO'
-        BoxLayout:
-            orientation:'horizontal'
-            MDTextField:
-                hint_text: 'TAG'
-            MDTextField:
-                # text: '01/01/1900'
-                multiline: False
-                hint_text: 'DATA'
-                helper_text_mode: "on_error"
-                error: False
-                helper_text: 'insira uma data válida no formaaato dd/mm/aaaa'
-                validator: 'date'
-                date_format: "dd/mm/yyyy"
-        MDLabel:
-            text: 'RESPONSÁVEL FORTE'
-            md_bg_color: 'gray'
-        MDTextField:
-            hint_text: 'RESPONSÁVEL FORTE'
-        MDLabel:
-            text: 'ASSINATURA DO CLIENTE'
-            md_bg_color: 'gray'
-        Widget:
+        MDScrollView:    
+            BoxLayout:
+                orientation:'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                MDLabel:
+                    text: 'DADOS DO CLIENTE'
+                    md_bg_color: 'blue'
+                    height: '20dp'
+                MDLabel:
+                    text: 'NOME DO CLIENTE'
+                    md_bg_color: 'gray'
+                    height: '20dp'
+                MDTextField:
+                    height: self.minimum_height
+                    hint_text: 'NOME DO CLIENTE'
+                MDLabel:
+                    text: 'DADOS DO EQUIPAMENTO'
+                    md_bg_color: 'gray'
+                MDTextField:
+                    hint_text: 'NOME DO EQUIPAMENTO'
+                BoxLayout:
+                    orientation:'horizontal'
+                    MDTextField:
+                        hint_text: 'TAG'
+                    MDTextField:
+                        # text: '01/01/1900'
+                        multiline: False
+                        hint_text: 'DATA'
+                        helper_text_mode: "on_error"
+                        error: False
+                        helper_text: 'insira uma data válida no formaaato dd/mm/aaaa'
+                        validator: 'date'
+                        date_format: "dd/mm/yyyy"
+                MDLabel:
+                    text: 'RESPONSÁVEL FORTE'
+                    md_bg_color: 'gray'
+                MDTextField:
+                    hint_text: 'RESPONSÁVEL FORTE'
+                MDLabel:
+                    text: 'ASSINATURA DO CLIENTE'
+                    md_bg_color: 'gray'
+                Widget:
 
 
 <CheckListPonteScreen>:
